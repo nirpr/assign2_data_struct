@@ -50,3 +50,8 @@ void Max_heap::insert(Pair item) {
 	}
 	data[i] = item;
 }
+
+Pair Max_heap::Max() {
+	Pair max = data[0];
+	return max;
+}

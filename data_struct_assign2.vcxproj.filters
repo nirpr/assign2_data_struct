@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="utillities.h">
+    <ClInclude Include="utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Max_heap.h">
@@ -27,15 +27,24 @@
     <ClInclude Include="Min_heap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="newADT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Max_Heap.cpp">
+    <ClCompile Include="Max_heap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Min_heap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="newADT.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

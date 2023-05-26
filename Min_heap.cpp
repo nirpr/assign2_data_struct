@@ -50,3 +50,8 @@ void Min_heap::insert(Pair item) {
 	}
 	data[i] = item;
 }
+
+Pair Min_heap::Min() {
+	Pair min = data[0];
+	return min;
+}

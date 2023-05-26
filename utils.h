@@ -2,7 +2,7 @@
 #define __UTILLITIES_H
 
 
-
+void chooseAction(char c);
 
 
 
