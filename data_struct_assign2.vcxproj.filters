@@ -18,9 +18,24 @@
     <ClInclude Include="utillities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Max_heap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Pair.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Min_heap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Max_Heap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Min_heap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -139,10 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Max_heap.h" />
+    <ClInclude Include="Min_heap.h" />
+    <ClInclude Include="Pair.h" />
     <ClInclude Include="utillities.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Max_Heap.cpp" />
+    <ClCompile Include="Min_heap.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
