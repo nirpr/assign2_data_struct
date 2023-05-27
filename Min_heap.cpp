@@ -38,7 +38,7 @@ Pair Min_heap::deleteMin() {
 	return min;
 }
 
-void Min_heap::insert(Pair item) {
+int Min_heap::insert(Pair item) {
 	//if (heapSize == H_SIZE)
 		//handle error
 	int i = heapSize;
@@ -49,9 +49,15 @@ void Min_heap::insert(Pair item) {
 		i = Parent(i);
 	}
 	data[i] = item;
+	return i;
 }
 
 Pair Min_heap::Min() {
 	Pair min = data[0];
 	return min;
+}
+
+void Min_heap::delete_from_ind(int ind) {
+	data[ind] = data[heapSize - 1];
+	FixHeap(ind);
 }

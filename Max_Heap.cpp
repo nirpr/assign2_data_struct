@@ -38,7 +38,7 @@ Pair Max_heap::deleteMax() {
 	return max;
 }
 
-void Max_heap::insert(Pair item) {
+int Max_heap::insert(Pair item) {
 	//if (heapSize == H_SIZE)
 		//handle error
 	int i = heapSize;
@@ -49,9 +49,16 @@ void Max_heap::insert(Pair item) {
 		i = Parent(i);
 	}
 	data[i] = item;
+	return i;
 }
 
 Pair Max_heap::Max() {
 	Pair max = data[0];
 	return max;
+}
+
+void Max_heap::delete_from_ind(int ind) {
+	data[ind] = data[heapSize - 1];
+	FixHeap(ind);
+	heapSize--;
 }

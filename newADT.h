@@ -3,8 +3,8 @@
 
 #include "Max_heap.h"
 #include "Min_heap.h"
-#include <string>
 #include <iostream>
+
 
 class newADT {
 private:
@@ -15,7 +15,7 @@ public:
 	void DeleteMax();
 	void Min();
 	void DeleteMin();
-	void Insert(int priority, std::string value);
+	void Insert(Pair& item);
 	void Median();
 };
 
