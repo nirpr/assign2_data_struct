@@ -141,13 +141,16 @@
   <ItemGroup>
     <ClInclude Include="Max_heap.h" />
     <ClInclude Include="Min_heap.h" />
+    <ClInclude Include="newADT.h" />
     <ClInclude Include="Pair.h" />
-    <ClInclude Include="utillities.h" />
+    <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Max_Heap.cpp" />
+    <ClCompile Include="Max_heap.cpp" />
     <ClCompile Include="Min_heap.cpp" />
+    <ClCompile Include="newADT.cpp" />
+    <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
