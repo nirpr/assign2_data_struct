@@ -51,25 +51,23 @@ Pair Min_heap::deleteMin() {
 	delete data[0];
 	heapSize--;
 	data[0] = data[heapSize];
+	data[0]->ind = 0;
 	FixHeap(0);
 	return min;
 }
 
-int Min_heap::insert(Pair& item) {
+int Min_heap::insert(Pair* item) {
 	//if (heapSize == H_SIZE)
 		//handle error
 	int i = heapSize;
 	heapSize++;
 
-	while ((i > 0) && (data[Parent(i)]->priority > item.priority)) {
+	while ((i > 0) && (data[Parent(i)]->priority > item->priority)) {
 		data[i] = data[Parent(i)];
 		data[i]->ind = i;
 		i = Parent(i);
 	}
-	Pair* pItem = new Pair;
-	*pItem = item;
-	pItem->ind = i; // Set the ind value of the new Pair object
-	data[i] = pItem;
+	data[i] = item;
 	return i;
 }
 
@@ -83,7 +81,7 @@ Pair Min_heap::delete_from_ind(int ind) {
 	delete data[ind];
 	heapSize--;
 	data[ind] = data[heapSize];
-	//data[ind]->ind = ind;
+	data[ind]->ind = ind;
 	FixHeap(ind);
 	return deleted_ind;
 }
