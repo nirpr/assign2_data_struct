@@ -34,11 +34,12 @@ Pair Min_heap::deleteMin() {
 	Pair min = data[0];
 	heapSize--;
 	data[0] = data[heapSize];
+	data[0].ind = 0;
 	FixHeap(0);
 	return min;
 }
 
-int Min_heap::insert(Pair item) {
+int Min_heap::insert(Pair& item) {
 	//if (heapSize == H_SIZE)
 		//handle error
 	int i = heapSize;
@@ -49,6 +50,7 @@ int Min_heap::insert(Pair item) {
 		i = Parent(i);
 	}
 	data[i] = item;
+	data[i].ind = i; // test to see if can do this without changing the arr to pointers arr.
 	return i;
 }
 
@@ -59,5 +61,7 @@ Pair Min_heap::Min() {
 
 void Min_heap::delete_from_ind(int ind) {
 	data[ind] = data[heapSize - 1];
+	data[ind].ind = ind;
 	FixHeap(ind);
+	heapSize--;
 }

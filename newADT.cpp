@@ -26,32 +26,32 @@ void newADT::DeleteMin() {
 void  newADT::Insert(Pair& item) {
 	Pair item_dup = item;
 	Pair deletedMin, deletedMin_dup, deletedMax, deletedMax_dup;
-	item.mutualP = &item_dup;
+	item.mutualP = &item_dup; // set mutual pointers
 	item_dup.mutualP = &item;
 	if (maxH2.isEmpty() || item.priority > maxH2.Max().priority)
 	{
-		item_dup.ind = maxH1.insert(item);
-		item.ind = minH1.insert(item_dup);
+		item.ind = maxH1.insert(item);
+		item_dup.ind = minH1.insert(item_dup);
 		if (maxH1.getSize() > maxH2.getSize())
 		{
 			deletedMin = minH1.deleteMin();
-			maxH1.delete_from_ind(deletedMin.ind);
+			maxH1.delete_from_ind(deletedMin.mutualP->ind); //get the ind from the mutual pointer
 			deletedMin_dup = deletedMin;
-			deletedMin_dup.ind = maxH2.insert(deletedMin);
-			deletedMin.ind = minH2.insert(deletedMin_dup);
+			deletedMin_dup.ind = maxH2.insert(deletedMin_dup);
+			deletedMin.ind = minH2.insert(deletedMin);
 		}
 	}
 	else
 	{
-		item_dup.ind = maxH2.insert(item);
-		item.ind = minH2.insert(item_dup);
+		item.ind = maxH2.insert(item); //save his own index
+		item_dup.ind = minH2.insert(item_dup); // same
 		if (maxH1.getSize() < maxH2.getSize())
 		{
 			deletedMax = maxH2.deleteMax();
-			minH2.delete_from_ind(deletedMax.ind);
+			minH2.delete_from_ind(deletedMax.mutualP->ind);
 			deletedMax_dup = deletedMax;
-			deletedMax_dup.ind = maxH1.insert(deletedMax);
-			deletedMax.ind = minH1.insert(deletedMax_dup);
+			deletedMax_dup.ind = maxH1.insert(deletedMax_dup);
+			deletedMax.ind = minH1.insert(deletedMax);
 		}
 	}
 }

@@ -16,7 +16,7 @@ private:
 public:
 	Pair Max();
 	Pair deleteMax();
-	int insert(Pair item);
+	int insert(Pair& item);
 	bool isEmpty() { return heapSize < 1; }
 	int getSize() { return heapSize; }
 	void setSize(int size) { heapSize = size; }

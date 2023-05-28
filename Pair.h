@@ -10,7 +10,7 @@ public:
 	std::string data;
 	//int mutualP;
 	int ind;
-	class Pair* mutualP = nullptr;
+	Pair* mutualP = nullptr;
 };
 #endif 
 
