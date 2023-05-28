@@ -24,7 +24,7 @@ void newADT::DeleteMin() {
 }
 
 void  newADT::Insert(Pair& item) {
-	Pair item_dup = item;
+	Pair item_dup = item; // the problem is with the mutualP after the first deletetion it's not right.
 	Pair deletedMin, deletedMin_dup, deletedMax, deletedMax_dup;
 	item.mutualP = &item_dup; // set mutual pointers
 	item_dup.mutualP = &item;
@@ -35,8 +35,7 @@ void  newADT::Insert(Pair& item) {
 		if (maxH1.getSize() > maxH2.getSize())
 		{
 			deletedMin = minH1.deleteMin();
-			maxH1.delete_from_ind(deletedMin.mutualP->ind); //get the ind from the mutual pointer
-			deletedMin_dup = deletedMin;
+			deletedMin_dup = maxH1.delete_from_ind(deletedMin.mutualP->ind); //get the ind from the mutual pointer
 			deletedMin_dup.ind = maxH2.insert(deletedMin_dup);
 			deletedMin.ind = minH2.insert(deletedMin);
 		}
@@ -48,8 +47,7 @@ void  newADT::Insert(Pair& item) {
 		if (maxH1.getSize() < maxH2.getSize())
 		{
 			deletedMax = maxH2.deleteMax();
-			minH2.delete_from_ind(deletedMax.mutualP->ind);
-			deletedMax_dup = deletedMax;
+			deletedMax_dup = minH2.delete_from_ind(deletedMax.mutualP->ind);
 			deletedMax_dup.ind = maxH1.insert(deletedMax_dup);
 			deletedMax.ind = minH1.insert(deletedMax);
 		}
