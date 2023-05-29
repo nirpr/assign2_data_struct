@@ -16,13 +16,13 @@ private:
 public:
 	Max_heap();
 	~Max_heap();
-	Pair Max();
-	Pair deleteMax();
+	Pair* Max();
+	Pair* deleteMax();
 	int insert(Pair* item);
 	bool isEmpty() { return heapSize < 1; }
 	int getSize() { return heapSize; }
 	void setSize(int size) { heapSize = size; }
-	Pair delete_from_ind(int ind);
+	Pair* delete_from_ind(int ind);
 };
 
 #endif

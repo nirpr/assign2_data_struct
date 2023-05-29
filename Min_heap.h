@@ -14,13 +14,13 @@ private:
 public:
 	Min_heap();
 	~Min_heap();
-	Pair Min();
-	Pair deleteMin();
+	Pair* Min();
+	Pair* deleteMin();
 	int insert(Pair* item);
 	bool isEmpty() { return heapSize < 1; }
 	int getSize() { return heapSize; }
 	void setSize(int size) { heapSize = size; }
-	Pair delete_from_ind(int ind);
+	Pair* delete_from_ind(int ind);
 };
 
 #endif

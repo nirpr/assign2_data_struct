@@ -4,6 +4,7 @@ using namespace std;
 //The function operate the adt function base on the user choice
 void chooseAction(newADT& adt, char c)
 {
+	// the function matches a certain function to the c parameter it gets.
 	switch(c) {
 		case 'a':
 			adt.Max();
@@ -39,12 +40,14 @@ void chooseAction(newADT& adt, char c)
 
 void breakProgram()
 {
+	// exit function
 	cout << "wrong input";
 	exit(1);
 }
 
 void endInputHandler()
 {
+	// a function to check if there are more inputs than the number that was provided
 	char input;
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	cin.get(input);

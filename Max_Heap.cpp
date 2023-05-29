@@ -29,6 +29,7 @@ int Max_heap::Right(int node) {
 }
 
 void Max_heap::FixHeap(int node) {
+	// the function fixes the heap if the root is not the max priority.
 	int max;
 	int left = Left(node);
 	int right = Right(node);
@@ -45,11 +46,12 @@ void Max_heap::FixHeap(int node) {
 	}
 }
 
-Pair Max_heap::deleteMax() {
+Pair* Max_heap::deleteMax() {
+	// the function returns the max pair and removes it from the data arr
+
 	//if (heapSize < 1)
 		// need to handle error
-	Pair max = *data[0];
-	delete data[0];
+	Pair* max = data[0];
 	heapSize--;
 	data[0] = data[heapSize];
 	data[0]->ind = 0;
@@ -58,6 +60,8 @@ Pair Max_heap::deleteMax() {
 }
 
 int Max_heap::insert(Pair* item) {
+	// the function inserts a pair to the heap.
+
 	//if (heapSize == H_SIZE)
 		//handle error
 	int i = heapSize;
@@ -72,14 +76,15 @@ int Max_heap::insert(Pair* item) {
 	return i;
 }
 
-Pair Max_heap::Max() {
-	Pair max = *data[0];
+Pair* Max_heap::Max() {
+	// returns max priority pair.
+	Pair* max = data[0];
 	return max;
 }
 
-Pair Max_heap::delete_from_ind(int ind) {
-	Pair deleted_ind = *data[ind];
-	delete data[ind];
+Pair* Max_heap::delete_from_ind(int ind) {
+	// the function deletes a pair from a specific index.
+	Pair* deleted_ind = data[ind];
 	heapSize--;
 	data[ind] = data[heapSize];
 	data[ind]->ind = ind;
