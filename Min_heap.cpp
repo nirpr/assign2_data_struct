@@ -28,6 +28,7 @@ int Min_heap::Right(int node) {
 }
 
 void Min_heap::FixHeap(int node) {
+	// the function fixes the heap if the root is not the min priority.
 	int min;
 	int left = Left(node);
 	int right = Right(node);
@@ -44,11 +45,12 @@ void Min_heap::FixHeap(int node) {
 	}
 }
 
-Pair Min_heap::deleteMin() {
-	//if (heapSize < 1)
-		// need to handle error
-	Pair min = *data[0];
-	delete data[0];
+Pair* Min_heap::deleteMin() {
+	// the function returns the min pair and removes it from the data arr
+
+	if (heapSize < 1)
+		breakProgram();
+	Pair* min = data[0];
 	heapSize--;
 	data[0] = data[heapSize];
 	data[0]->ind = 0;
@@ -56,9 +58,19 @@ Pair Min_heap::deleteMin() {
 	return min;
 }
 
+void Min_heap::breakProgram()
+{
+	// exit function.
+	std::cout << "wrong input";
+	exit(1);
+}
+
 int Min_heap::insert(Pair* item) {
-	//if (heapSize == H_SIZE)
-		//handle error
+	// the function inserts a pair to the heap.
+
+	if (heapSize == H_MIN_SIZE)
+		heapFull();
+
 	int i = heapSize;
 	heapSize++;
 
@@ -71,14 +83,22 @@ int Min_heap::insert(Pair* item) {
 	return i;
 }
 
-Pair Min_heap::Min() {
-	Pair min = *data[0];
+void Min_heap::heapFull()
+{
+	//when the heap is full the program stops running
+	std::cout << "No more space in heap";
+	exit(1);
+}
+
+Pair* Min_heap::Min() {
+	// returns min priority pair.
+	Pair* min = data[0];
 	return min;
 }
 
-Pair Min_heap::delete_from_ind(int ind) {
-	Pair deleted_ind = *data[ind];
-	delete data[ind];
+Pair* Min_heap::delete_from_ind(int ind) {
+	// the function deletes a pair from a specific index.
+	Pair* deleted_ind = data[ind];
 	heapSize--;
 	data[ind] = data[heapSize];
 	data[ind]->ind = ind;
