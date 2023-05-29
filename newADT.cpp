@@ -14,10 +14,7 @@ void newADT::Max()
 		cout << max.priority << ' ' << max.data << endl;
 	}
 	else
-	{
-		cout << "wrong input";
-		exit(1);
-	}
+		breakProgram();
 }
 
 void newADT::Min() {
@@ -32,10 +29,7 @@ void newADT::Min() {
 		cout << min.priority << ' ' << min.data << endl;
 	}
 	else
-	{
-		cout << "wrong input";
-		exit(1);
-	}
+		breakProgram();
 }
 
 void newADT::DeleteMax() {
@@ -54,10 +48,7 @@ void newADT::DeleteMax() {
 		cout << max.priority << ' ' << max.data << endl;
 	}
 	else
-	{
-		cout << "wrong input";
-		exit(1);
-	}
+		breakProgram();
 }
 
 void newADT::DeleteMin() {
@@ -76,14 +67,11 @@ void newADT::DeleteMin() {
 		cout << min.priority << ' ' << min.data << endl;
 	}
 	else
-	{
-		cout << "wrong input";
-		exit(1);
-	}
+		breakProgram();
 }
 
 void  newADT::Insert(Pair& item) {
-	Pair* item_p, * item_dup_p;  // the problem is with the mutualP after the first deletetion it's not right.
+	Pair* item_p, * item_dup_p;  
 	item_p = new Pair;
 	item_dup_p = new Pair;
 	*item_p = *item_dup_p = item;
@@ -130,4 +118,10 @@ void newADT::even_heaps_high() {
 	deletedMax->ind = minH1.insert(deletedMax);
 	deletedMax->mutualP = deletedMax_dup;
 	deletedMax_dup->mutualP = deletedMax;
+}
+
+void newADT::breakProgram()
+{
+	cout << "wrong input";
+	exit(1);
 }
