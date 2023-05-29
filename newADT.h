@@ -4,7 +4,7 @@
 #include "Max_heap.h"
 #include "Min_heap.h"
 #include <iostream>
-
+#include "utils.h"
 
 class newADT {
 private:
@@ -19,8 +19,6 @@ public:
 	void Median();
 	void even_heaps_low();
 	void even_heaps_high();
-	void breakProgram();
-	void allocFaild();
 };
 
 
