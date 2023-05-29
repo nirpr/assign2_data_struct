@@ -20,6 +20,7 @@ public:
 	void even_heaps_low();
 	void even_heaps_high();
 	void breakProgram();
+	void allocFaild();
 };
 
 

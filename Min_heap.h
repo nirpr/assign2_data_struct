@@ -2,10 +2,13 @@
 #define __MIN_HEAP_H
 
 #include "Pair.h"
+#include <iostream>
+
+constexpr int H_MIN_SIZE = 100;
 
 class Min_heap {
 private:
-	Pair* data[100];
+	Pair* data[H_MIN_SIZE];
 	int heapSize;
 	static int Left(int node);
 	static int Right(int node);
@@ -21,6 +24,8 @@ public:
 	int getSize() { return heapSize; }
 	void setSize(int size) { heapSize = size; }
 	Pair* delete_from_ind(int ind);
+	void breakProgram();
+	void heapFull();
 };
 
 #endif

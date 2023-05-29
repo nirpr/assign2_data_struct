@@ -87,6 +87,10 @@ void  newADT::Insert(Pair& item) {
 	Pair* item_p, * item_dup_p;  
 	item_p = new Pair;
 	item_dup_p = new Pair;
+
+	if (item_p == nullptr or item_dup_p == nullptr)
+		allocFaild();
+
 	*item_p = *item_dup_p = item;
 	item_p->mutualP = item_dup_p;
 	item_dup_p->mutualP = item_p;
@@ -140,5 +144,11 @@ void newADT::breakProgram()
 {
 	// exit function.
 	cout << "wrong input";
+	exit(1);
+}
+
+void newADT::allocFaild()
+{
+	cout << "Failed to allocate memory!";
 	exit(1);
 }
