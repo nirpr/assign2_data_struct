@@ -2,16 +2,13 @@
 #define __UTILS_H
 
 #include "newADT.h"
-#include <string>
-#include <iostream>
-#include "Max_heap.h"
-#include "Min_heap.h"
-#include "Pair.h"
+class newADT;
 
 void chooseAction(newADT& adt, char c);
 void breakProgram();
 void endInputHandler();
-
+void checkAllocation(Pair* ptr);
+void checkInput();
 
 #endif
 
