@@ -1,30 +1,85 @@
 #include "newADT.h"
 using namespace std;
 
-void newADT::Max() {
-	Pair max = maxH1.Max();
-	cout << max.priority << ' ' << max.data << endl;
+void newADT::Max()
+{
+	if (!maxH1.isEmpty())
+	{
+		Pair max = maxH1.Max();
+		cout << max.priority << ' ' << max.data << endl;
+	}
+	else if (!maxH2.isEmpty())
+	{
+		Pair max = maxH2.Max();
+		cout << max.priority << ' ' << max.data << endl;
+	}
+	else
+	{
+		cout << "wrong input";
+		exit(1);
+	}
 }
 
 void newADT::Min() {
-	Pair min = minH2.Min();
-	cout << min.priority << ' ' << min.data << endl;
+	if (!minH2.isEmpty())
+	{
+		Pair min = minH2.Min();
+		cout << min.priority << ' ' << min.data << endl;
+	}
+	else if (!minH1.isEmpty())
+	{
+		Pair min = minH1.Min();
+		cout << min.priority << ' ' << min.data << endl;
+	}
+	else
+	{
+		cout << "wrong input";
+		exit(1);
+	}
 }
 
 void newADT::DeleteMax() {
-	Pair max = maxH1.deleteMax();
-	minH1.delete_from_ind(max.ind);
-	if (maxH1.getSize() < maxH2.getSize())
-		even_heaps_high();
-	cout << max.priority << ' ' << max.data << endl;
+	if (!maxH1.isEmpty())
+	{
+		Pair max = maxH1.deleteMax();
+		minH1.delete_from_ind(max.mutualP->ind);
+		if (maxH1.getSize() + 1 < maxH2.getSize())
+			even_heaps_high();
+		cout << max.priority << ' ' << max.data << endl;
+	}
+	else if (!maxH2.isEmpty())
+	{
+		Pair max = maxH2.deleteMax();
+		minH2.delete_from_ind(max.mutualP->ind);
+		cout << max.priority << ' ' << max.data << endl;
+	}
+	else
+	{
+		cout << "wrong input";
+		exit(1);
+	}
 }
 
 void newADT::DeleteMin() {
-	Pair min = minH2.deleteMin();
-	maxH2.delete_from_ind(min.ind);
-	if (maxH1.getSize() > maxH2.getSize())
-		even_heaps_low();
-	cout << min.priority << ' ' << min.data << endl;
+	if (!minH2.isEmpty())
+	{
+		Pair min = minH2.deleteMin();
+		maxH2.delete_from_ind(min.mutualP->ind);
+		if (maxH1.getSize() > maxH2.getSize())
+			even_heaps_low();
+		cout << min.priority << ' ' << min.data << endl;
+	}
+	else if (!minH1.isEmpty())
+	{
+		Pair min = minH1.deleteMin();
+		maxH1.delete_from_ind(min.mutualP->ind);
+		cout << min.priority << ' ' << min.data << endl;
+	}
+	else
+	{
+		cout << "wrong input";
+		exit(1);
+	}
 }
 
 void  newADT::Insert(Pair& item) {
@@ -45,7 +100,7 @@ void  newADT::Insert(Pair& item) {
 	{
 		item_p->ind = maxH2.insert(item_p); //save his own index
 		item_dup_p->ind = minH2.insert(item_dup_p); // same
-		if (maxH1.getSize() < maxH2.getSize())
+		if (maxH1.getSize() + 1 < maxH2.getSize())
 			even_heaps_high();
 	}
 }

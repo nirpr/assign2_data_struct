@@ -41,7 +41,13 @@ int main()
 		else
 			chooseAction(adt, ch); // with mama first example the problem is with median(probably before but noticed than)
 	}
-
+	cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	cin.get(ch);
+	if (ch != '\n')
+	{
+		cout << "wrong input" << endl;
+		exit(1);
+	}
 
 	return 0;
 }
