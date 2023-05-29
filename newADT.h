@@ -17,6 +17,8 @@ public:
 	void DeleteMin();
 	void Insert(Pair& item);
 	void Median();
+	void even_heaps_low();
+	void even_heaps_high();
 };
 
 

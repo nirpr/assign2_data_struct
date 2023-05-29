@@ -8,7 +8,8 @@ class Pair {
 public:
 	int priority;
 	std::string data;
-	int mutualP;
+	int ind;
+	Pair* mutualP = nullptr;
 };
 #endif 
 
